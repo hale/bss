@@ -3,7 +3,9 @@ module BSS
   # The swaps needed to transform source into target.
   #
   # A swap is a pair of indices which when applied to source, 
-  def self.swaps(source, target)
+  def self.swaps(a, b)
+    source = a.dup
+    target = b
     [].tap do |swaps|
       source.length.times do |index|
         current = source[index]

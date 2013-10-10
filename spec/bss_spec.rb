@@ -10,7 +10,7 @@ describe BSS do
     source.should eq(target)
   end
 
-  it "all together now" do
+  it "works with random sequences" do
     source = random_sequence
     target = source.shuffle
     BSS.swaps(source, target).each do |swap|
@@ -33,22 +33,14 @@ describe BSS do
   end
 
   describe "#swaps" do
+    it "does nothing when the sequences are the same" do
+      BSS.swaps([1,2,3], [1,2,3]).should eq([])
+    end
+
     it "works for 2 elements" do
       a = [1,2]
       b = [2,1]
       BSS.swaps(a, b).should eq([[0,1]])
-    end
-
-    it "works for 3 elements" do
-      a = [1,2,3]
-      b = [2,3,1]
-      BSS.swaps(a, b).should eq([[0,1],[1,2]])
-    end
-
-    it "works for 5 elements" do
-      a = [1,2,3,4,5]
-      b = [2,3,1,5,4]
-      BSS.swaps(a, b).should eq([[0,1], [1,2], [3,4]])
     end
 
     it "works for 6 elements" do
@@ -62,10 +54,6 @@ describe BSS do
       a = [12, 132, 2, 22, 1, 32, 11]
       b = [12, 132, 1, 22, 2, 32, 11]
       BSS.swaps(a, b).should eq([[2, 4]])
-    end
-
-    it "does nothing when the sequences are the same" do
-      BSS.swaps([1,2,3], [1,2,3]).should eq([])
     end
   end
 end
