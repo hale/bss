@@ -1,4 +1,4 @@
-require_relative '../lib/bss'
+require_relative 'spec_helper'
 
 describe BSS do
   it "can permutate A into B given a list of swaps" do
@@ -54,22 +54,6 @@ describe BSS do
       a = [12, 132, 2, 22, 1, 32, 11]
       b = [12, 132, 1, 22, 2, 32, 11]
       BSS.swaps(a, b).should eq([[2, 4]])
-    end
-  end
-end
-
-def random_sequence(max_length: 10)
-  [].tap do |sequence|
-    max_length.times do
-      sequence << Random.rand(max_length).to_i
-    end
-  end.uniq
-end
-
-describe Array do
-  describe "#swap_indices!" do
-    it "swaps elements of an array at the given indices" do
-      [1,2,3,4].swap_indices!(1, 3).should eq([1,4,3,2])
     end
   end
 end
