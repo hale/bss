@@ -1,4 +1,4 @@
-BSS
+BSS [![Build Status](https://travis-ci.org/hale/bss.png)](https://travis-ci.org/hale/bss)
 ===
 
 Basic Swap Sequence.  A swap sequence is defined as the series of index-swaps
